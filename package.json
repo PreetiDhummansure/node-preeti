@@ -1,0 +1,26 @@
+{
+  "name": "hh",
+  "version": "1.0.0",
+  "description": "this is an assignment",
+  "main": " server.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "dotenv-expand": "^9.0.0",
+    "express": "^4.18.1",
+    "express-fileupload": "^1.4.0",
+    "index.js": "0.0.3",
+    "node": "^18.9.0",
+    "uuid": "^9.0.0",
+    "git repository":"https://github.com/mern-154/node-preeti"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "scripts": {
+    "start": "  nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": []
+}
