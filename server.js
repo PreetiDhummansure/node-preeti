@@ -1,29 +1,27 @@
-const  express = require('express');
-const dotenv = require('dotenv');
-const dotenvExpand = require('dotenv-expand');
+const path = require("path");
+const dotenv = require("dotenv");
+const express = require("express");
+const dotenvExpand = require("dotenv-expand");
+const fileupload = require("express-fileupload");
 
 const app = express();
-
 dotenvExpand.expand(dotenv.config());
 
+const PORT = process.env.PORT || 5500;
+const SERVER = process.env.SERVER || "";
 
-const PORT=process.env.PORT || 5223;
-const SERVER=process.env.SERVER || "";
-const userRoute=require('./src/src/routes/userRoutes');
+app.use(express.json());
+app.use(fileupload({ createParentPath: true }));
+app.use(express.static(path.join(__dirname, "public/uploads")));
 
-app.get("/",(req,res)=>{
-return res.json('welcome')
+const UserRoute = require("./src/routes/UserRoutes");
+
+app.get("/", (req, res) => {
+	return res.json("Welcome!");
 });
 
-app.use("/user",userRoute );
+app.use("/user", UserRoute);
+
 app.listen(PORT, () => {
-  console.log(`the server is running on :${SERVER}`);
+	console.log(`Server is running on ${SERVER}`);
 });
-
-
-
-
-
-
-
- 
